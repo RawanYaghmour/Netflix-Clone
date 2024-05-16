@@ -27,7 +27,7 @@ function MovieList({ moviesData, isFavPage }) {
 
     const getAllFavMovies = () => {
 
-        const serverURL = `http://localhost:3001/getMovies`;
+        const serverURL = `https://movies-library-1-hydu.onrender.com/getMovies`;
 
 
         axios.get(serverURL)
@@ -47,7 +47,7 @@ function MovieList({ moviesData, isFavPage }) {
 
     // for delete
     const deleteItem = (item) => {
-        let url = `http://localhost:3001/delete/${item.id}`
+        let url = `https://movies-library-1-hydu.onrender.com/delete/${item.id}`
         console.log(url);
         axios.delete(url)
             .then(response => {
