@@ -7,6 +7,7 @@ function FavList() {
 
     return (
         <>
+            <MovieList isFavPage={true} />
         </>
     )
 }

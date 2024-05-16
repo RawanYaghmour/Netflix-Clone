@@ -8,7 +8,7 @@ function Home() {
 
     const getAllMovies = () => {
 
-        const serverURL = `http://localhost:3001/trending`;
+        const serverURL = `https://movies-library-1-hydu.onrender.com/trending`;
 
             axios.get(serverURL)
 
@@ -25,7 +25,7 @@ function Home() {
     }, []);
     return (
         <>
-            <MovieList moviesData={moviesData} />
+            <MovieList moviesData={moviesData} isFavPage ={false}/>
 
         </>
     )
