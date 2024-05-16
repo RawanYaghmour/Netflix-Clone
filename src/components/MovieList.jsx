@@ -1,4 +1,4 @@
-//import ModalMovie from "./ModalMovie";
+import ModalMovie from "./ModalMovie";
 import { useState, useEffect } from "react";
 import Movie from "./Movie";
 import { Row, Col, Card, Button } from 'react-bootstrap';
@@ -73,22 +73,20 @@ function MovieList({ moviesData, isFavPage }) {
 
 
 
-    const updateFavoriteMovies = (data) => {
-        setMoviesFavorite(data);
-    }
 
 
 
     return (
         <>
-             <Row>
-                    {moviesData.map(item => (
-                        <Col key={item.id}>
-                            <Movie item={item} showModal={showModal} />
-                        </Col>
-                    ))}
-                </Row>
-            
+            <Row>
+                {moviesData.map(item => (
+                    <Col key={item.id}>
+                        <Movie item={item} showModal={showModal} />
+                    </Col>
+                ))}
+                <ModalMovie show={show} handleClose={handleClose} clickedMovie={clickedMovie} />
+            </Row>
+
         </>
 
     );

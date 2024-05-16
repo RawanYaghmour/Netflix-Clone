@@ -12,7 +12,7 @@ function Movie(props) {
                     </Card.Text>
 
 
-                    <Button variant="primary" onClick={() => { props.showModal(props.item) }} >add to fav</Button>{' '}
+                    <Button variant="primary" onClick={() => { props.showModal(props.item) }}> add to favourite</Button>
 
 
                 </Card.Body>
