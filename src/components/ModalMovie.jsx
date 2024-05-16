@@ -10,7 +10,7 @@ function ModalMovie(props) {
 
 
     // for add a comment on movie 
-    const url = "http://localhost:3001/addMovie";
+    const url = "https://movies-library-1-hydu.onrender.com/addMovie";
 
     const addComment = (e) => {
 
@@ -40,7 +40,7 @@ function ModalMovie(props) {
 
     const updateComment = (e) => {
 
-        const url = `http://localhost:3001/UPDATE/${props.clickedMovie.id}`;
+        const url = `https://movies-library-1-hydu.onrender.com/UPDATE/${props.clickedMovie.id}`;
         e.preventDefault();
         const obj = {
             title: props.clickedMovie.title,
