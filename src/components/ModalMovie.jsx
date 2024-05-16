@@ -8,8 +8,9 @@ import Form from 'react-bootstrap/Form';
 
 function ModalMovie(props) {
 
+
     // for add a comment on movie 
-    const url = "http://localhost:3002/addMovie";
+    const url = "http://localhost:3001/addMovie";
 
     const addComment = (e) => {
 
@@ -39,7 +40,7 @@ function ModalMovie(props) {
 
     const updateComment = (e) => {
 
-        const url = `http://localhost:3002/UPDATE/${props.clickedMovie.id}`;
+        const url = `http://localhost:3001/UPDATE/${props.clickedMovie.id}`;
         e.preventDefault();
         const obj = {
             title: props.clickedMovie.title,
@@ -72,41 +73,27 @@ function ModalMovie(props) {
     };
 
 
-
     return (
-        <><Modal show={props.show}
+        <>
+        <Modal show={props.show}
             onHide={props.handleClose} >
             <Modal.Header closeButton>
                 <Modal.Title>Info Movie</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form onSubmit={props.isFavPage ? updateComment : addComment}>
+                <Form onSubmit={addComment}>
                     <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w185${props.clickedMovie.poster_path}`} width='100%'
                         style={{
                             width: "100%",
                             height: "400px"
                         }} />
                     <h3 style={{ textAlign: "center" }}>{props.clickedMovie.title}</h3>
-                    <Form.Group className="mb-3">
-                        {props.isFavPage &&
-                            <>
-                                <Form.Label>Edit a comment</Form.Label>
-                                <Form.Control
-                                    name='comment'
-                                    defaultValue={props.clickedMovie.comment || ''}
-                                    placeholder="Enter your comment"
-                                />
-                            </>
-                        }
-                        {!props.isFavPage &&
-                            <>
+                                            
                                 <Form.Group className="mb-3">
                                     <Form.Label>Add a comment</Form.Label>
                                     <Form.Control name='comment' placeholder="Enter your comment" />
                                 </Form.Group>
-                            </>
-                        }
-                    </Form.Group>
+                           
                     <Button variant="primary" type='submit'>
                         Submit and add to favourite page
                     </Button>

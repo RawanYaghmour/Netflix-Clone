@@ -10,8 +10,13 @@ function App() {
 
   return (
     <>
-      <Home />   
-       </>
+
+      <h1 >Welcome in Movie Website</h1>
+      <h1 >*****************************</h1>
+
+      <br></br>
+      <Home />
+    </>
   )
 }
 
