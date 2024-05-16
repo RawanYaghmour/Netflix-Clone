@@ -4,20 +4,43 @@ import Card from 'react-bootstrap/Card';
 function Movie(props) {
     return (
         <>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w185${props.item.poster_path}`} />
-                <Card.Body>
-                    <Card.Title>{props.item.title}</Card.Title>
-                    <Card.Text>
-                    </Card.Text>
+            {
+                props.isFavPage && <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w185${props.item.poster_path}`} />
+                    <Card.Body>
+                        <Card.Title>{props.item.title}</Card.Title>
+                        <Card.Text>
+                        </Card.Text>
+
+                        <Button variant="success" onClick={() => { props.updateItem(props.item) }} >Update</Button>{' '}
+                        <Button variant="danger" onClick={() => { props.deleteItem(props.item) }} >Delete</Button>{' '}
 
 
-                    <Button variant="primary" onClick={() => { props.showModal(props.item) }}> add to favourite</Button>
+                    </Card.Body>
+                </Card >
+            }
+            {
 
 
-                </Card.Body>
-            </Card >
 
+                
+                
+
+
+                !props.isFavPage && <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w185${props.item.poster_path}`} />
+                    <Card.Body>
+                        <Card.Title>{props.item.title}</Card.Title>
+                        <Card.Text>
+                        </Card.Text>
+
+
+                        <Button variant="primary" onClick={() => { props.showModal(props.item) }}> add to favourite</Button>
+
+
+                    </Card.Body>
+                </Card >
+            }
         </>
     )
 }

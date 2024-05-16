@@ -77,17 +77,29 @@ function MovieList({ moviesData, isFavPage }) {
 
 
     return (
-        <>
-            <Row>
-                {moviesData.map(item => (
-                    <Col key={item.id}>
-                        <Movie item={item} showModal={showModal} />
-                    </Col>
-                ))}
-                <ModalMovie show={show} handleClose={handleClose} clickedMovie={clickedMovie} />
-            </Row>
-
-        </>
+        
+            <>
+                {
+                    isFavPage && <Row>
+                        {moviesFavorite?.map(item => (
+                            <Col key={item.id}>
+                                <Movie item={item} showModal={showModal} isFavPage={isFavPage} deleteItem={deleteItem} updateItem={updateItem} />
+                            </Col>
+                        ))}
+                        <ModalMovie show={show} handleClose={handleClose} clickedMovie={clickedMovie} isFavPage={isFavPage}  />
+                    </Row>
+                }
+                {
+                    !isFavPage && <Row>
+                        {moviesData.map(item => (
+                            <Col key={item.id}>
+                                <Movie item={item} showModal={showModal} />
+                            </Col>
+                        ))}
+                        <ModalMovie show={show} handleClose={handleClose} clickedMovie={clickedMovie} />
+                    </Row>
+                }
+            </>
 
     );
 }
